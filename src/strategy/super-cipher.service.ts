@@ -10,8 +10,7 @@ import { ThreeCommasService } from "../3-commas/three-commas.service";
 
 @Injectable()
 export class SuperCipherService {
-  private readonly pairs = ["ANTUSDT", "LUNAUSDT", "ZECUSDT", "BTCUSDT", "ETHUSDT", "LTCUSDT", "MASKUSDT", "ALGOUSDT", "SOLUSDT", "XLMUSDT", "XRPUSDT", "DOTUSDT", "DOGEUSDT", "ALICEUSDT", "ALGOUSDT", "TRXUSDT", "BNBUSDT", "WAVESUSDT"];
-
+  private readonly pairs = process.env.pairs.split(",")?.map(p => p.trim());
   constructor(private readonly tradingviewService: TradingviewService,
               private readonly cipherBService: CipherBService,
               private readonly superTrendService: SuperTrendService,
