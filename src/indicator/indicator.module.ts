@@ -6,7 +6,6 @@ import { SuperTrendService } from "./super-trend.service";
 @Module({
   imports: [TradingviewModule],
   providers: [CipherBService, SuperTrendService],
-  exports: [CipherBService, SuperTrendService]
+  exports: [CipherBService, SuperTrendService],
 })
-export class IndicatorModule {
-}
+export class IndicatorModule {}

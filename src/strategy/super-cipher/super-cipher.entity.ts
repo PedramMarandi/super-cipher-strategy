@@ -2,7 +2,7 @@ import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, U
 
 export enum SignalEnum {
   LONG = "long",
-  SHORT = "short"
+  SHORT = "short",
 }
 
 @Entity()
@@ -21,7 +21,7 @@ export class SuperCipherEntity extends BaseEntity {
 
   @Column({
     type: "enum",
-    enum: SignalEnum
+    enum: SignalEnum,
   })
   type: SignalEnum;
 
@@ -37,4 +37,3 @@ export class SuperCipherEntity extends BaseEntity {
   @UpdateDateColumn()
   updated_at: Date;
 }
-

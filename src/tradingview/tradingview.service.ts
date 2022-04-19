@@ -5,16 +5,15 @@ import * as TradingView from "@mathieuc/tradingview";
 export class TradingviewService {
   private client = undefined;
 
-  constructor() {
-  }
+  constructor() {}
 
-  setChart(chartParam: { market: string, timeframe: string, onError?: (...e) => void }) {
+  setChart(chartParam: { market: string; timeframe: string; onError?: (...e) => void }) {
     if (!this.getClient()) {
       throw new Error(`No client selected`);
     }
     const chart = new this.client.Session.Chart();
     chart.setMarket(chartParam.market, {
-      timeframe: chartParam.timeframe
+      timeframe: chartParam.timeframe,
     });
     if (typeof chartParam.onError === "undefined") {
       chartParam.onError = (...error) => {

@@ -8,11 +8,15 @@ import { ScheduleModule } from "@nestjs/schedule";
 import { SignalModule } from "./signal/signal.module";
 import { Connection } from "typeorm";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { SuperCipherEntity } from "./strategy/super-cipher.entity";
+import { SuperCipherEntity } from "./strategy/super-cipher/super-cipher.entity";
 import { ThreeCommasModule } from "./3-commas/three-commas.module";
 
 @Module({
-  imports: [TradingviewModule, StrategyModule, IndicatorModule, ScheduleModule.forRoot(),
+  imports: [
+    TradingviewModule,
+    StrategyModule,
+    IndicatorModule,
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
@@ -21,15 +25,14 @@ import { ThreeCommasModule } from "./3-commas/three-commas.module";
       synchronize: true,
       host: process.env.DATABASE_HOST,
       type: "postgres",
-      entities: [SuperCipherEntity]
+      entities: [SuperCipherEntity],
     }),
     SignalModule,
-    ThreeCommasModule],
+    ThreeCommasModule,
+  ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule {
-  constructor(private connection: Connection) {
-  }
-
+  constructor(private connection: Connection) {}
 }

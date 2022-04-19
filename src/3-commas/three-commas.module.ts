@@ -3,7 +3,6 @@ import { ThreeCommasService } from "./three-commas.service";
 
 @Module({
   providers: [ThreeCommasService],
-  exports: [ThreeCommasService]
+  exports: [ThreeCommasService],
 })
-export class ThreeCommasModule {
-}
+export class ThreeCommasModule {}
