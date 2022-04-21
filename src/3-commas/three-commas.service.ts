@@ -1,12 +1,15 @@
 import { API } from "3commas-typescript";
-import { Injectable } from "@nestjs/common";
+import { Injectable, Logger } from "@nestjs/common";
 import { SignalEnum } from "../strategy/super-cipher/super-cipher.entity";
 
 @Injectable()
 export class ThreeCommasService {
-  constructor() {}
-
   static async startNewDeal(data: { pair: string; type: SignalEnum }): Promise<any> {
+    if (process.env.ENV === "development") {
+      new Logger(ThreeCommasService.name).warn(`3Commas is disabled in development mode`);
+      return;
+    }
+
     if (data.type === SignalEnum.SHORT) {
       console.log("SHORT BOT IS DISABLED");
       return;
