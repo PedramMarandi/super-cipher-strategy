@@ -111,7 +111,7 @@ export class SuperCipherService extends BaseStrategy {
             type: SignalEnum.SHORT,
             reenter: false,
           });
-          await ThreeCommasService.startNewDeal({ type: SignalEnum.LONG, pair: fact.pair });
+          await ThreeCommasService.startNewDeal({ type: SignalEnum.SHORT, pair: fact.pair });
         },
       }),
 
@@ -133,7 +133,7 @@ export class SuperCipherService extends BaseStrategy {
             type: SignalEnum.SHORT,
             reenter: true,
           });
-          await ThreeCommasService.startNewDeal({ type: SignalEnum.LONG, pair: fact.pair });
+          await ThreeCommasService.startNewDeal({ type: SignalEnum.SHORT, pair: fact.pair });
         },
       }),
     ];
